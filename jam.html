@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Menampilkan Waktu</title>
+  <style>
+    .clock {
+      font-size: 24px;
+      font-weight: bold;
+    }
+  </style>
+  <script>
+    class Clock {
+      constructor(element) {
+        this.element = element;
+      }
+      
+      start() {
+        this.updateTime(); // Panggil fungsi updateTime untuk pertama kali
+      
+        // Panggil fungsi updateTime setiap 1 detik (1000 milidetik)
+        setInterval(() => {
+          this.updateTime();
+        }, 1000);
+      }
+      
+      updateTime() {
+        const date = new Date();
+        const hours = this.formatTime(date.getHours());
+        const minutes = this.formatTime(date.getMinutes());
+        const seconds = this.formatTime(date.getSeconds());
+        
+        const time = `${hours}:${minutes}:${seconds}`;
+        
+        this.element.innerText = time;
+      }
+      
+      formatTime(time) {
+        return time < 10 ? `0${time}` : time;
+      }
+    }
+    
+    document.addEventListener("DOMContentLoaded", () => {
+      const clockElements = document.getElementsByClassName("clock");
+      
+      // Membuat objek Clock untuk setiap elemen dengan class "clock"
+      for (let i = 0; i < clockElements.length; i++) {
+        const clock = new Clock(clockElements[i]);
+        clock.start();
+      }
+    });
+  </script>
+</head>
+<body>
+  <h1>Waktu saat ini:</h1>
+  <p class="clock"></p>
+</body>
+</html>
