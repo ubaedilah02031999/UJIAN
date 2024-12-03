@@ -1,4 +1,15 @@
-let nama = prompt('Masukan Nama Anda');
+
+let nama = confirm('Selama ujian anda akan direkam, klik ya untuk melanjutkan!');
+
+if (!nama) {
+    // Jika klik Cancel (tidak setuju), mengarahkan ke index.html
+    window.location.href = "index.html";  // Ganti dengan halaman index Anda
+} else {
+    // Jika klik OK (setuju), proses akan dilanjutkan
+    // Di sini bisa Anda tambahkan kode untuk melanjutkan proses, misalnya:
+    alert("Jangan lupa senyum menghadap kamera..");
+};
+
 
 
 
