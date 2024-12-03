@@ -7,7 +7,9 @@ if (!nama) {
 } else {
     // Jika klik OK (setuju), proses akan dilanjutkan
     // Di sini bisa Anda tambahkan kode untuk melanjutkan proses, misalnya:
-    alert("Jangan lupa senyum menghadap kamera..");
+    setTimeout(function() {
+      alert("Jangan lupa senyum menghadap kamera..");
+  }, 5000);
 };
 
 
