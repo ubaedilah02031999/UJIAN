@@ -5,6 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>OfficialArRahmah</title>
 
+  <style>
+    /* Efek Overlay Flash: lapisan overlay untuk menutupi layar */
+    .flash-effect {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.7); /* Flash putih dengan transparansi */
+      z-index: 9999; /* Pastikan lapisan ini berada di atas konten lainnya */
+      animation: flash 0.6s ease-out; /* Animasi flash berlangsung selama 0.6 detik */
+    }
+
+    @keyframes flash {
+      0% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+
+    /* Menambahkan beberapa styling untuk konten ujian */
+    #exam-container {
+      padding: 20px;
+      background-color: #f5f5f5;
+      border: 1px solid #ddd;
+    }
+  </style>
+
+
+
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
@@ -352,5 +384,30 @@
 <script src="dist/js/pages/dashboard.js"></script>
 <script src="timer.js"></script>
 <script src="time.js"></script>
+
+
+
+<script>
+  // Fungsi untuk menampilkan efek flash (overlay)
+  function showFlashEffect() {
+    // Membuat elemen flash-effect
+    const flash = document.createElement('div');
+    flash.className = 'flash-effect';
+
+    // Menambahkan flash-effect ke dalam body
+    document.body.appendChild(flash);
+
+    // Setelah animasi selesai (0.6 detik), menghapus flash-effect
+    setTimeout(() => {
+      flash.remove();
+
+      // Setelah flash selesai, tampilkan popup alert
+      alert('Layar di screenshot oleh admin..');
+    }, 600);  // Durasi animasi flash (0.6 detik)
+  }
+
+  // Menampilkan efek flash setiap 5 detik
+  setInterval(showFlashEffect, 1 *60* 1000);  // Mengubah interval ke 5 detik
+</script>
 </body>
 </html>
